@@ -1,0 +1,1778 @@
+/* =========================================================
+   INVITACIÓN ARMANDO CARDONA
+   PALETA: NEGRO · CHAMPAGNE · ORO
+========================================================= */
+
+
+/* =========================================================
+   FUENTES
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --negro: #050403;
+    --negro-suave: #0b0907;
+
+    --oro: #c9a45c;
+    --oro-claro: #e5c987;
+    --champagne: #ead9ad;
+
+    --blanco: #f8f5ed;
+    --gris: #bdb7aa;
+
+    --sombra: rgba(0, 0, 0, .6);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: var(--blanco);
+
+    font-family: 'Montserrat', sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(177, 132, 51, .12) 0%,
+            rgba(0, 0, 0, 0) 35%
+        ),
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(177, 132, 51, .08) 0%,
+            rgba(0, 0, 0, 0) 35%
+        ),
+        linear-gradient(
+            180deg,
+            #050403 0%,
+            #0a0806 50%,
+            #050403 100%
+        );
+}
+
+
+/* =========================================================
+   TEXTURA DEL FONDO
+========================================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .045;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.8) .5px,
+            transparent .5px
+        );
+
+    background-size: 8px 8px;
+
+    z-index: 50;
+}
+
+
+/* =========================================================
+   LUCES AMBIENTALES
+========================================================= */
+
+.luz {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(214, 171, 91, .08);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.luz-1 {
+    top: 5%;
+    left: -180px;
+}
+
+.luz-2 {
+    top: 40%;
+    right: -180px;
+}
+
+.luz-3 {
+    top: 75%;
+    left: 20%;
+}
+
+
+/* =========================================================
+   CONTENEDORES DE GLOBOS
+   IMPORTANTE:
+   YA NO SON FIXED.
+   SE MUEVEN CON EL SCROLL.
+========================================================= */
+
+.grupo-globos,
+.grupo-inferior {
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   GRUPO SUPERIOR IZQUIERDO
+========================================================= */
+
+.grupo-izquierdo {
+    top: 15px;
+    left: -20px;
+}
+
+
+/* =========================================================
+   GRUPO SUPERIOR DERECHO
+========================================================= */
+
+.grupo-derecho {
+    top: 15px;
+    right: -20px;
+}
+
+
+/* =========================================================
+   GLOBOS INFERIORES
+========================================================= */
+
+.grupo-inferior.izquierdo {
+    top: 1180px;
+    left: -25px;
+}
+
+.grupo-inferior.derecho {
+    top: 1180px;
+    right: -25px;
+}
+
+
+/* =========================================================
+   GLOBOS
+========================================================= */
+
+.globo {
+    position: absolute;
+
+    border-radius: 50% 50% 47% 47%;
+
+    box-shadow:
+        inset -12px -15px 25px rgba(0,0,0,.22),
+        inset 10px 8px 15px rgba(255,255,255,.20),
+        0 10px 22px rgba(0,0,0,.45);
+
+    animation: flotar 5s ease-in-out infinite;
+
+    transform-origin: center bottom;
+}
+
+
+/* =========================================================
+   GLOBO CHAMPAGNE
+========================================================= */
+
+.globo.champagne {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.85) 0%,
+            rgba(255,255,255,.25) 12%,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f5e8c7 0%,
+            #d8c18b 45%,
+            #b39455 100%
+        );
+}
+
+
+/* =========================================================
+   GLOBO DORADO
+========================================================= */
+
+.globo.dorado {
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.7) 0%,
+            rgba(255,255,255,.18) 12%,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #f0d38b 0%,
+            #c99c43 45%,
+            #8e6522 100%
+        );
+}
+
+
+/* =========================================================
+   BRILLO DEL GLOBO
+========================================================= */
+
+.globo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 22%;
+    height: 15%;
+
+    top: 15%;
+    left: 18%;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.55);
+
+    filter: blur(2px);
+
+    transform: rotate(-25deg);
+}
+
+
+/* =========================================================
+   CUERDA DEL GLOBO
+========================================================= */
+
+.globo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+    height: 65px;
+
+    top: 98%;
+    left: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(220,190,130,.7),
+            rgba(220,190,130,0)
+        );
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE GLOBOS
+========================================================= */
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+}
+
+
+/* =========================================================
+   POSICIONES DE LOS GLOBOS
+========================================================= */
+
+/* IZQUIERDA */
+
+.g1 {
+    width: 105px;
+    height: 125px;
+
+    left: 0;
+    top: 0;
+
+    animation-delay: 0s;
+}
+
+.g2 {
+    width: 78px;
+    height: 94px;
+
+    left: 82px;
+    top: 75px;
+
+    animation-delay: .8s;
+}
+
+.g3 {
+    width: 62px;
+    height: 75px;
+
+    left: 25px;
+    top: 120px;
+
+    animation-delay: 1.5s;
+}
+
+.g4 {
+    width: 88px;
+    height: 105px;
+
+    left: 125px;
+    top: 20px;
+
+    animation-delay: 2s;
+}
+
+
+/* DERECHA */
+
+.g5 {
+    width: 95px;
+    height: 115px;
+
+    right: 0;
+    top: 10px;
+
+    animation-delay: .5s;
+}
+
+.g6 {
+    width: 65px;
+    height: 78px;
+
+    right: 90px;
+    top: 85px;
+
+    animation-delay: 1.2s;
+}
+
+.g7 {
+    width: 82px;
+    height: 100px;
+
+    right: 20px;
+    top: 120px;
+
+    animation-delay: 1.8s;
+}
+
+.g8 {
+    width: 58px;
+    height: 70px;
+
+    right: 120px;
+    top: 30px;
+
+    animation-delay: 2.4s;
+}
+
+
+/* GLOBOS EXTRA */
+
+.g9 {
+    width: 60px;
+    height: 72px;
+
+    left: 120px;
+    top: 145px;
+}
+
+.g10 {
+    width: 58px;
+    height: 70px;
+
+    right: 125px;
+    top: 150px;
+}
+
+
+/* GLOBOS INFERIORES */
+
+.g11 {
+    width: 100px;
+    height: 120px;
+
+    left: 0;
+    top: 0;
+
+    animation-delay: 1s;
+}
+
+.g12 {
+    width: 68px;
+    height: 82px;
+
+    left: 90px;
+    top: 70px;
+
+    animation-delay: 1.8s;
+}
+
+.g13 {
+    width: 90px;
+    height: 108px;
+
+    right: 0;
+    top: 0;
+
+    animation-delay: .7s;
+}
+
+.g14 {
+    width: 72px;
+    height: 86px;
+
+    right: 90px;
+    top: 70px;
+
+    animation-delay: 2s;
+}
+
+
+/* =========================================================
+   PARTÍCULAS DORADAS
+========================================================= */
+
+.particulas {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.particulas::before {
+    content: "✦  ·  ✧     ·       ✦       ·     ✧  ·";
+
+    position: absolute;
+
+    top: 15%;
+    left: 5%;
+
+    width: 90%;
+
+    color: rgba(214,171,91,.4);
+
+    font-size: 12px;
+
+    letter-spacing: 30px;
+
+    line-height: 70px;
+
+    animation: estrellas 7s ease-in-out infinite alternate;
+}
+
+.particulas::after {
+    content: "·      ✦       ·    ✧      ·       ✦";
+
+    position: absolute;
+
+    top: 55%;
+    left: 8%;
+
+    color: rgba(214,171,91,.25);
+
+    font-size: 10px;
+
+    letter-spacing: 25px;
+
+    line-height: 80px;
+
+    animation: estrellas 9s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes estrellas {
+    from {
+        opacity: .25;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: .6;
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   PÁGINA DE ENTRADA
+========================================================= */
+
+.entrada {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 25px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   CONTENIDO ENTRADA
+========================================================= */
+
+.entrada-contenido {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+    max-width: 600px;
+
+    padding: 35px 20px;
+}
+
+
+/* =========================================================
+   TEXTO PEQUEÑO
+========================================================= */
+
+.pequeno {
+    color: var(--oro);
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   ADORNOS
+========================================================= */
+
+.adorno {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    margin: 15px auto 25px;
+}
+
+.adorno span {
+    width: 55px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--oro)
+        );
+}
+
+.adorno span:last-child {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            var(--oro)
+        );
+}
+
+.adorno div {
+    color: var(--oro-claro);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   TÍTULO ENTRADA
+========================================================= */
+
+.entrada h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 82px;
+
+    line-height: .82;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+    color: var(--blanco);
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.8);
+}
+
+.entrada h1 em {
+    display: block;
+
+    color: var(--oro-claro);
+
+    font-style: italic;
+
+    font-weight: 400;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   MENSAJE ENTRADA
+========================================================= */
+
+.mensaje-entrada {
+    margin-top: 30px;
+
+    color: #c8c1b5;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BOTÓN ENTRADA
+========================================================= */
+
+.boton-entrada {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 28px;
+
+    margin-top: 38px;
+
+    padding: 15px 25px;
+
+    color: var(--oro-claro);
+
+    text-decoration: none;
+
+    border: 1px solid rgba(212,171,91,.65);
+
+    background: rgba(10,8,6,.65);
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    overflow: hidden;
+
+    transition:
+        .4s ease;
+
+    box-shadow:
+        0 0 25px rgba(212,171,91,.08);
+}
+
+.boton-entrada:hover {
+    color: var(--negro);
+
+    background: var(--oro-claro);
+
+    box-shadow:
+        0 0 35px rgba(212,171,91,.3);
+
+    transform: translateY(-2px);
+}
+
+.boton-entrada b {
+    font-size: 18px;
+
+    font-weight: 300;
+}
+
+
+/* =========================================================
+   PIE ENTRADA
+========================================================= */
+
+.pie {
+    margin-top: 38px;
+
+    color: #777065;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   PÁGINA DE INVITACIÓN
+========================================================= */
+
+.pagina-invitacion {
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
+.invitacion {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding:
+        80px 30px 50px;
+}
+
+
+/* =========================================================
+   CABECERA
+========================================================= */
+
+.cabecera {
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    margin-bottom: 65px;
+}
+
+.introduccion {
+    max-width: 540px;
+
+    margin: 0 auto;
+
+    color: #c9c2b6;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 21px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   NOMBRE
+========================================================= */
+
+.nombre-seccion {
+    position: relative;
+
+    z-index: 10;
+
+    margin-bottom: 60px;
+}
+
+.banner-dorado {
+    position: relative;
+
+    overflow: hidden;
+
+    max-width: 570px;
+
+    margin: 0 auto;
+
+    padding: 45px 30px 40px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b98c3e 0%,
+            #f0d58d 28%,
+            #c59b4d 55%,
+            #8e672a 100%
+        );
+
+    clip-path:
+        polygon(
+            3% 0,
+            97% 0,
+            100% 8%,
+            98% 50%,
+            100% 92%,
+            97% 100%,
+            3% 100%,
+            0 92%,
+            2% 50%,
+            0 8%
+        );
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   BRILLO DEL BANNER
+========================================================= */
+
+.brillo-banner {
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 50%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    animation: brillo 5s ease-in-out infinite;
+}
+
+@keyframes brillo {
+
+    0% {
+        left: -100%;
+    }
+
+    45%,
+    100% {
+        left: 150%;
+    }
+}
+
+
+/* =========================================================
+   LÍNEAS DEL BANNER
+========================================================= */
+
+.banner-linea {
+    width: 75%;
+
+    height: 1px;
+
+    margin: 13px auto;
+
+    background:
+        rgba(255,255,255,.65);
+}
+
+
+/* =========================================================
+   LABEL NOMBRE
+========================================================= */
+
+.nombre-label {
+    position: relative;
+
+    z-index: 3;
+
+    color: rgba(42,28,10,.75);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   NOMBRE
+========================================================= */
+
+.banner-dorado h1 {
+    position: relative;
+
+    z-index: 3;
+
+    color: #20160b;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 70px;
+
+    line-height: .82;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 1px rgba(255,255,255,.3);
+}
+
+.banner-dorado h1 span {
+    font-style: italic;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   DATOS
+========================================================= */
+
+.datos {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-bottom: 65px;
+}
+
+.dato {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.numero {
+    color: var(--oro-claro);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 70px;
+
+    line-height: .8;
+
+    font-weight: 500;
+}
+
+.icono {
+    color: var(--oro-claro);
+
+    font-size: 34px;
+}
+
+.texto-dato {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.texto-dato strong {
+    color: var(--blanco);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: 500;
+}
+
+.texto-dato small {
+    color: var(--oro);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.separador-datos {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.separador-datos span {
+    width: 25px;
+
+    height: 1px;
+
+    background: rgba(201,164,92,.5);
+}
+
+.separador-datos div {
+    color: var(--oro);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MENSAJE
+========================================================= */
+
+.mensaje-seccion {
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 560px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.mensaje-seccion p {
+    color: #c8c0b4;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 20px;
+
+    line-height: 1.55;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   LUGAR
+========================================================= */
+
+.lugar {
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    max-width: 570px;
+
+    margin: 0 auto 80px;
+}
+
+.etiqueta {
+    color: var(--oro);
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 18px;
+}
+
+.lugar h2 {
+    color: var(--blanco);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 48px;
+
+    font-weight: 500;
+
+    font-style: italic;
+}
+
+.linea-dorada {
+    width: 70px;
+
+    height: 1px;
+
+    margin: 20px auto 30px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--oro),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   BOTÓN UBICACIÓN
+========================================================= */
+
+.boton-ubicacion {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 17px;
+
+    max-width: 330px;
+
+    margin: 0 auto;
+
+    padding: 15px 20px;
+
+    color: var(--blanco);
+
+    text-decoration: none;
+
+    border: 1px solid rgba(201,164,92,.55);
+
+    background: rgba(10,8,6,.7);
+
+    transition: .35s ease;
+}
+
+.boton-ubicacion:hover {
+    border-color: var(--oro-claro);
+
+    background: rgba(201,164,92,.12);
+
+    transform: translateY(-2px);
+}
+
+.boton-ubicacion .pin {
+    color: var(--oro-claro);
+
+    font-size: 24px;
+}
+
+.boton-ubicacion span:nth-child(2) {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 4px;
+}
+
+.boton-ubicacion strong {
+    color: var(--oro-claro);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+.boton-ubicacion small {
+    color: #9d9689;
+
+    font-size: 9px;
+}
+
+.boton-ubicacion b {
+    color: var(--oro-claro);
+
+    margin-left: auto;
+
+    font-size: 18px;
+
+    font-weight: 300;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.cierre {
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    padding-bottom: 40px;
+}
+
+.cierre h3 {
+    color: var(--oro-claro);
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    margin-bottom: 12px;
+}
+
+.cierre p {
+    color: #a9a195;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+.copas {
+    margin-top: 25px;
+
+    font-size: 32px;
+
+    filter:
+        drop-shadow(0 0 10px rgba(212,171,91,.25));
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 30px 10px 20px;
+
+    color: #746d61;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    border-top: 1px solid rgba(201,164,92,.12);
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================= */
+
+.entrada-contenido {
+    animation:
+        aparecer 1.2s ease forwards;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .invitacion {
+        padding:
+            65px 25px 40px;
+    }
+
+    .banner-dorado {
+        max-width: 520px;
+    }
+
+    .banner-dorado h1 {
+        font-size: 62px;
+    }
+
+    .numero {
+        font-size: 62px;
+    }
+
+    .datos {
+        gap: 25px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+========================================================= */
+
+/* =========================================================
+   RESPONSIVE CELULAR
+   GLOBOS PROTAGÓNICOS + ZONA CENTRAL LIMPIA
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================================
+       CONTENIDO
+    ===================================================== */
+
+    .invitacion {
+        position: relative;
+        z-index: 10;
+
+        padding:
+            55px 18px 40px;
+    }
+
+    .cabecera,
+    .nombre-seccion,
+    .datos,
+    .mensaje-seccion,
+    .lugar,
+    .cierre {
+        position: relative;
+        z-index: 10;
+    }
+
+
+    /* =====================================================
+       GLOBOS SUPERIORES
+       
+       Siguen siendo grandes y visibles,
+       pero se alejan del centro.
+    ===================================================== */
+
+    .grupo-izquierdo {
+        top: 0;
+        left: -78px;
+
+        transform: scale(.78);
+
+        transform-origin: top left;
+
+        z-index: 2;
+    }
+
+    .grupo-derecho {
+        top: 0;
+        right: -78px;
+
+        transform: scale(.78);
+
+        transform-origin: top right;
+
+        z-index: 2;
+    }
+
+
+    /* =====================================================
+       EVITAMOS QUE LOS GLOBOS INTERIORES
+       INVADAN EL CENTRO
+    ===================================================== */
+
+    .grupo-izquierdo .g3,
+    .grupo-izquierdo .g4 {
+        display: none;
+    }
+
+    .grupo-derecho .g6,
+    .grupo-derecho .g8 {
+        display: none;
+    }
+
+
+    /* =====================================================
+       GLOBOS INFERIORES
+       
+       Aparecen más abajo, durante el scroll.
+    ===================================================== */
+
+    .grupo-inferior.izquierdo {
+        top: 1120px;
+        left: -65px;
+
+        transform: scale(.76);
+
+        transform-origin: top left;
+
+        z-index: 2;
+    }
+
+    .grupo-inferior.derecho {
+        top: 1120px;
+        right: -65px;
+
+        transform: scale(.76);
+
+        transform-origin: top right;
+
+        z-index: 2;
+    }
+
+
+    /* =====================================================
+       LOS GLOBOS NO SE TRANSPARENTAN SOBRE EL TEXTO
+       
+       El texto queda siempre por encima.
+    ===================================================== */
+
+    .cabecera,
+    .datos,
+    .mensaje-seccion,
+    .lugar,
+    .cierre {
+        background:
+            rgba(5, 4, 3, .78);
+
+        border-radius: 16px;
+
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+
+        box-shadow:
+            0 10px 35px rgba(0,0,0,.25);
+    }
+
+
+    /* =====================================================
+       CABECERA
+    ===================================================== */
+
+    .cabecera {
+        padding:
+            20px 16px;
+
+        margin:
+            0 5px 55px;
+    }
+
+    .introduccion {
+        max-width: 290px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 18px;
+
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       NOMBRE
+    ===================================================== */
+
+    .nombre-seccion {
+        padding:
+            0 8px;
+
+        margin-bottom: 55px;
+    }
+
+    .banner-dorado {
+        margin:
+            0 auto;
+
+        padding:
+            38px 18px 34px;
+    }
+
+    .banner-dorado h1 {
+        font-size: 52px;
+    }
+
+
+    /* =====================================================
+       FECHA Y HORA
+    ===================================================== */
+
+    .datos {
+        padding:
+            17px 12px;
+
+        margin:
+            0 5px 60px;
+
+        gap: 14px;
+    }
+
+    .numero {
+        font-size: 53px;
+    }
+
+    .icono {
+        font-size: 24px;
+    }
+
+    .texto-dato strong {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .texto-dato small {
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       MENSAJE
+    ===================================================== */
+
+    .mensaje-seccion {
+        max-width: 310px;
+
+        padding:
+            20px 17px;
+
+        margin:
+            0 auto 60px;
+    }
+
+    .mensaje-seccion p {
+        font-size: 18px;
+
+        line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       LUGAR
+    ===================================================== */
+
+    .lugar {
+        max-width: 310px;
+
+        padding:
+            21px 16px;
+
+        margin:
+            0 auto 65px;
+    }
+
+    .lugar h2 {
+        font-size: 38px;
+    }
+
+
+    /* =====================================================
+       CIERRE
+    ===================================================== */
+
+    .cierre {
+        padding:
+            22px 16px 30px;
+
+        margin:
+            0 5px;
+    }
+
+    .cierre h3 {
+        font-size: 29px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    /* -----------------------------------------------------
+       GLOBOS
+    ----------------------------------------------------- */
+
+    .grupo-izquierdo {
+        left: -92px;
+
+        transform: scale(.70);
+    }
+
+    .grupo-derecho {
+        right: -92px;
+
+        transform: scale(.70);
+    }
+
+    .grupo-inferior.izquierdo {
+        left: -78px;
+
+        transform: scale(.68);
+    }
+
+    .grupo-inferior.derecho {
+        right: -78px;
+
+        transform: scale(.68);
+    }
+
+
+    /* -----------------------------------------------------
+       CONTENIDO
+    ----------------------------------------------------- */
+
+    .invitacion {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .cabecera {
+        margin-left: 3px;
+        margin-right: 3px;
+
+        padding:
+            18px 13px;
+    }
+
+    .introduccion {
+        max-width: 275px;
+
+        font-size: 17px;
+    }
+
+
+    /* -----------------------------------------------------
+       NOMBRE
+    ----------------------------------------------------- */
+
+    .nombre-seccion {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .banner-dorado {
+        padding:
+            36px 15px 32px;
+    }
+
+    .banner-dorado h1 {
+        font-size: 47px;
+    }
+
+
+    /* -----------------------------------------------------
+       DATOS
+    ----------------------------------------------------- */
+
+    .datos {
+        gap: 9px;
+
+        padding:
+            15px 8px;
+    }
+
+    .numero {
+        font-size: 47px;
+    }
+
+    .texto-dato strong {
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .icono {
+        font-size: 22px;
+    }
+
+
+    /* -----------------------------------------------------
+       MENSAJE
+    ----------------------------------------------------- */
+
+    .mensaje-seccion {
+        max-width: 285px;
+
+        padding:
+            18px 14px;
+    }
+
+    .mensaje-seccion p {
+        font-size: 17px;
+    }
+
+
+    /* -----------------------------------------------------
+       LUGAR
+    ----------------------------------------------------- */
+
+    .lugar {
+        max-width: 285px;
+    }
+
+    .lugar h2 {
+        font-size: 34px;
+    }
+}
